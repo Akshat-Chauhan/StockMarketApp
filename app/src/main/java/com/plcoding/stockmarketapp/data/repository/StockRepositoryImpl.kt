@@ -17,8 +17,8 @@ import javax.inject.Singleton
 
 @Singleton
 class StockRepositoryImpl @Inject constructor(
-    val api: StockApi,
-    val db: StockDatabase,
+    private val api: StockApi,
+    private val db: StockDatabase,
     private val companyListingsParser: CSVParser<CompanyListing>,
 ) : StockRepository {
 
@@ -70,11 +70,4 @@ class StockRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun getIntradayInfo(symbol: String): Resource<List<IntradayInfo>> {
-        TODO("Not yet implemented")
-    }
-
-    override suspend fun getCompanyInfo(symbol: String): Resource<CompanyInfo> {
-        TODO("Not yet implemented")
-    }
 }
